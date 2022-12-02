@@ -24,7 +24,7 @@
                 </span>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start border-top " id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
+                        <a href="{{ route('client.index') }}" class="nav-link align-middle px-0">
                             <i class="fs-4 bi bi-people-fill text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Clients</span>
                         </a>
                     </li>

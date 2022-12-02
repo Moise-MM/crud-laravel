@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//company
 Route::get('/companies',[CompanyController::class,'index'])->name('company.index');
+
+//----------------------------------------------------------------------------------------
+
+//Clients
+Route::get('/clients',[ClientController::class,'index'])->name('client.index');
