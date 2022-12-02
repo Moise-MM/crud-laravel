@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="{{ route('company.index') }}" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-building text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Companies</span></a>
                     </li>
                 </ul>
