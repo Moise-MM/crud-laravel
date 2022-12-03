@@ -10,7 +10,7 @@
 
         <div class="row">
            <div class="col-6 mx-auto">
-                <form action="{{ route('client.store') }}" method="POST">
+                <form action="{{ route('client.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card p-5 mt-5">
                         <div class="row">
@@ -62,8 +62,8 @@
                                 @enderror
                              </div>
                              <div class="col-4">
-                                <label for="formFile" class="form-label">Image</label>
-                                <input name="image" id="formFile" class="form-control @error('image') is-invalid @enderror"" type="file" id="formFile">
+                                <label for="image" class="form-label">Image</label>
+                                <input name="image"  id="image" class="form-control @error('image') is-invalid @enderror"" type="file" id="image">
                                 @error('image')
                                     <div class="invalid-feedback">
                                         {{ $errors->first('image') }}

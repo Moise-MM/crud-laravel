@@ -22,7 +22,7 @@
                     <td>
                       <div class="d-flex align-items-center">
                         <img
-                            src="{{ asset('images/profile.jpg') }}"
+                            src="{{ $client->image == "" ? asset('images/profile.jpg') : asset('storage').'/'.$client->image }}"
                             alt=""
                             style="width: 45px; height: 45px"
                             class="rounded-circle"

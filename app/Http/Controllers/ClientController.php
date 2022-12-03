@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class ClientController extends Controller
 {
@@ -45,16 +46,35 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+
+    
         //validation 
         $formFileds = $request->validate([
             'name' => ['required','min:5'],
             'phone' => 'required',
             'gender' => 'required',
             'company_id' => 'required',
-            'email' => ['required','email']
+            'email' => ['required','email'],
+            'image' => 'required|max:2048' 
         ]);
 
-        $formFields['image'] = "";
+
+       if($request->file('image'))
+       {
+
+            //get the image
+            $image = $request->file('image');
+
+            //
+            $newNameImage = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+    
+            $path_image = storage_path('app/public/uploads/clients/'.$newNameImage);
+            
+            //resize image
+            Image::make($image)->resize(500,600)->save($path_image);
+
+            $formFileds['image'] = 'uploads/clients/'.$newNameImage;
+       }
 
         //store data
         Client::create($formFileds);
