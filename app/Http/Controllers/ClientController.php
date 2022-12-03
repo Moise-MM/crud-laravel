@@ -25,7 +25,6 @@ class ClientController extends Controller
     /**
      * Show create Form
      *
-     * @return void
      */
     public function create()
     {
@@ -38,10 +37,11 @@ class ClientController extends Controller
     }
 
 
+    
     /**
      * Store client Data
      *
-     * @return void
+     * @param Request $request
      */
     public function store(Request $request)
     {
@@ -61,5 +61,30 @@ class ClientController extends Controller
 
         //
         return redirect(route('client.index'));
+    }
+
+
+
+    /**
+     * Show edit form
+     *
+     * @param integer $id
+     */
+    public function edit(int $id)
+    {
+        $client = Client::find($id);
+        $companies = Company::all();
+
+        if($client)
+        {
+            return view('clients.edit',[
+                'client' => $client,
+                'companies' => $companies
+            ]);
+        }
+        else
+        {
+            abort(404);
+        }
     }
 }

@@ -42,10 +42,15 @@
                     <td>
                         <p class="fw-normal mb-1">{{ $client->company->name }}r</p>
                     </td>
-                    <td>
-                      <button type="button" class="btn btn-link btn-sm btn-rounded">
+                    <td class="d-flex">
+                      <a href="{{ route('client.edit',$client->id) }}" class="btn btn-link btn-sm btn-rounded">
                         Edit
-                      </button>
+                      </a>
+                      <form method="POST" action="" class>
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-link btn-sm btn-rounded">Delete</button>
+                    </form>
                     </td>
                   </tr>
                 @endforeach

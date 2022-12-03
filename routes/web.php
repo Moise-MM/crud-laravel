@@ -30,3 +30,5 @@ Route::get('/clients',[ClientController::class,'index'])->name('client.index');
 Route::get('/clients/add',[ClientController::class,'create'])->name('client.create');
 //
 Route::post('/clients/store',[ClientController::class,'store'])->name('client.store');
+//
+Route::get('/clients/edit/{id}',[ClientController::class,'edit'])->name('client.edit');
