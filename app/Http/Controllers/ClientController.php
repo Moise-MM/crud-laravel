@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class ClientController extends Controller
@@ -144,6 +145,11 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         $client->delete();
+
+        //delete old logo
+        if(File::exists(storage_path('app/public/'.$client->image))){
+            File::delete(storage_path('app/public//'.$client->image));
+        }
 
         return redirect(route("client.index"));
     }
