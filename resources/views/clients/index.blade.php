@@ -28,7 +28,7 @@
                             class="rounded-circle"
                             />
                         <div class="ms-3">
-                          <p class="fw-bold mb-1">J{{ $client->name }}</p>
+                          <p class="fw-bold mb-1">{{ $client->name }}</p>
                           <p class="text-muted mb-0">{{ $client->email }}</p>
                         </div>
                       </div>

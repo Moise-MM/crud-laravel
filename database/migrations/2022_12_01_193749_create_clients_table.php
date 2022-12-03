@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email', 60);
             $table->string('phone', 20);
             $table->string('gender', 5);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

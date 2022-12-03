@@ -43,8 +43,23 @@ class ClientController extends Controller
      *
      * @return void
      */
-    public function store()
+    public function store(Request $request)
     {
-        
+        //validation 
+        $formFileds = $request->validate([
+            'name' => ['required','min:5'],
+            'phone' => 'required',
+            'gender' => 'required',
+            'company_id' => 'required',
+            'email' => ['required','email']
+        ]);
+
+        $formFields['image'] = "";
+
+        //store data
+        Client::create($formFileds);
+
+        //
+        return redirect(route('client.index'));
     }
 }
