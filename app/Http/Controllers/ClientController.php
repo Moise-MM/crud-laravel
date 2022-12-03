@@ -89,6 +89,12 @@ class ClientController extends Controller
     }
 
 
+    /**
+     * Update Client Data
+     *
+     * @param Request $request
+     * @param Client $client
+     */
     public function update(Request $request, Client $client)
     {
         //validation 
@@ -107,6 +113,20 @@ class ClientController extends Controller
 
         return redirect(route('client.index'));
 
-
     }
+
+
+    /**
+     * Delete client
+     *
+     * @param Client $client
+     */
+    public function destroy(Client $client)
+    {
+        $client->delete();
+
+        return redirect(route("client.index"));
+    }
+
+
 }

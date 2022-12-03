@@ -46,9 +46,9 @@
                       <a href="{{ route('client.edit',$client->id) }}" class="btn btn-link btn-sm btn-rounded">
                         Edit
                       </a>
-                      <form method="POST" action="" class>
+                      <form method="POST" action="{{ route('client.destroy', $client->id) }}" class>
                         @csrf
-                        @method('DELETE')
+                        @method("DELETE")
                         <button class="btn btn-link btn-sm btn-rounded">Delete</button>
                     </form>
                     </td>
