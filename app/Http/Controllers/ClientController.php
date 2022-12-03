@@ -87,4 +87,26 @@ class ClientController extends Controller
             abort(404);
         }
     }
+
+
+    public function update(Request $request, Client $client)
+    {
+        //validation 
+        $formFileds = $request->validate([
+            'name' => ['required','min:5'],
+            'phone' => 'required',
+            'gender' => 'required',
+            'company_id' => 'required',
+            'email' => ['required','email']
+        ]);
+
+
+        $formFields['image'] = "";
+
+        $client->update($formFileds);
+
+        return redirect(route('client.index'));
+
+
+    }
 }

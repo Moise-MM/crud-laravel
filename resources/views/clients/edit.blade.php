@@ -11,8 +11,9 @@
 
         <div class="row">
            <div class="col-6 mx-auto">
-                <form action="{{ route('client.update') }}" method="POST">
+                <form action="{{ route('client.update', $client->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="card p-5 mt-5">
                         <div class="row">
                             <div class="mb-3">

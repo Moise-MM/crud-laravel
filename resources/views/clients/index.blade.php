@@ -40,7 +40,7 @@
                         <p class="fw-normal mb-1">{{ $client->gender }}</p>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">{{ $client->company->name }}r</p>
+                        <p class="fw-normal mb-1">{{ $client->company->name }}</p>
                     </td>
                     <td class="d-flex">
                       <a href="{{ route('client.edit',$client->id) }}" class="btn btn-link btn-sm btn-rounded">
