@@ -10,11 +10,11 @@
 
 
         <div class="row">
-           <div class="col-6 mx-auto">
-                <form action="{{ route('client.update', $client->id) }}" method="POST">
+           <div class="col-12 col-md-6 mx-auto">
+                <form action="{{ route('client.update', $client->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="card p-5 mt-5">
+                    <div class="card p-5 mt-2">
                         <div class="row">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full name</label>
@@ -82,6 +82,11 @@
                                         {{ $errors->first('email') }}
                                     </div>
                                 @enderror
+                            </div>
+                       </div>
+                       <div class="row">
+                            <div class="mb-3 col-5">
+                               <img src="{{ $client->image == "" ? asset('images/profile.jpg') : asset('storage').'/'.$client->image }}" alt="image of {{ $client->name }}" class="img-fluid img-thumbnail rounded" style="width: 150px; height: 150px" >
                             </div>
                        </div>
                        <button class="btn btn-primary" type="submit">Edit</button>

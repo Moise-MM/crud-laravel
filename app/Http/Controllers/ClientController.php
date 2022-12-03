@@ -124,11 +124,32 @@ class ClientController extends Controller
             'phone' => 'required',
             'gender' => 'required',
             'company_id' => 'required',
-            'email' => ['required','email']
+            'email' => ['required','email'],
+            'image' => 'required|max:2048'
         ]);
 
 
-        $formFields['image'] = "";
+        if($request->file('image'))
+        {
+
+             //delete old image
+            if(File::exists(storage_path('app/public/'.$client->image))){
+                File::delete(storage_path('app/public//'.$client->image));
+            }
+ 
+             //get the image
+             $image = $request->file('image');
+ 
+             //
+             $newNameImage = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+     
+             $path_image = storage_path('app/public/uploads/clients/'.$newNameImage);
+             
+             //resize image
+             Image::make($image)->resize(500,600)->save($path_image);
+ 
+             $formFileds['image'] = 'uploads/clients/'.$newNameImage;
+        }
 
         $client->update($formFileds);
 
@@ -146,7 +167,7 @@ class ClientController extends Controller
     {
         $client->delete();
 
-        //delete old logo
+        //delete image
         if(File::exists(storage_path('app/public/'.$client->image))){
             File::delete(storage_path('app/public//'.$client->image));
         }
