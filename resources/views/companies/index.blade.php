@@ -40,6 +40,10 @@
                 </tbody>
               </table>
         </div>
+
+        <div class="d-flex justify-content-end mt-5">
+          {{ $companies->links() }}
+        </div>
     </div>
     
 
