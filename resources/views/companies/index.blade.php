@@ -15,6 +15,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Website</th>
                     <th scope="col">address</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,16 @@
                         <td>{{ $company->email }}</td>
                         <td>{{ $company->website }}</td>
                         <td>{{ $company->address }}</td>
+                        <td class="d-flex">
+                          <a href="{{ route('company.edit',$company->id) }}" class="btn btn-link btn-sm btn-rounded">
+                            Edit
+                          </a>
+                          <form method="POST" action="" class>
+                            @csrf
+                            @method("DELETE")
+                            <button class="btn btn-link btn-sm btn-rounded">Delete</button>
+                        </form>
+                        </td>
                     </tr>
                   @endforeach
                 </tbody>

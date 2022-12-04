@@ -33,6 +33,11 @@ class CompanyController extends Controller
     }
 
 
+    /**
+     * Store company Data
+     *
+     * @param Request $request
+     */
     public function store(Request $request)
     {
         //validation
@@ -50,5 +55,28 @@ class CompanyController extends Controller
 
 
         return redirect(route('company.index'));
+    }
+
+
+    /**
+     * Show edit form
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function edit(int $id)
+    {
+        $company = Company::find($id);
+
+        if($company)
+        {
+            return view('companies.edit',[
+                'company' => $company
+            ]);
+        }
+        else
+        {
+            abort(404);
+        }
     }
 }

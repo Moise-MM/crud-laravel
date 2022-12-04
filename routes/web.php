@@ -25,6 +25,10 @@ Route::get('/companies',[CompanyController::class,'index'])->name('company.index
 Route::get('/companies/add',[CompanyController::class,'create'])->name('company.create');
 //
 Route::post('/companies/store',[CompanyController::class,'store'])->name('company.store');
+//
+Route::get('/companies/edit/{id}',[CompanyController::class,'edit'])->name('company.edit');
+//
+Route::put('/companies/update/{client}',[CompanyController::class,'update'])->name('company.update');
 
 //----------------------------------------------------------------------------------------
 
