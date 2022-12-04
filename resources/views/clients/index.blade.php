@@ -34,7 +34,7 @@
                       </div>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">{{ $client->phone }}r</p>
+                      <p class="fw-normal mb-1">{{ $client->phone }}</p>
                     </td>
                     <td>
                         <p class="fw-normal mb-1">{{ $client->gender }}</p>

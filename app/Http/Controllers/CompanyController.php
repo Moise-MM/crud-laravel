@@ -79,4 +79,27 @@ class CompanyController extends Controller
             abort(404);
         }
     }
+
+
+
+    /**
+     * Update Client Data
+     *
+     * @param Request $request
+     * @param Company $company
+     */
+    public function update(Request  $request, Company $company)
+    {
+        //validation
+        $formFields = $request->validate([
+            'name' => ['required','min:4'],
+            'email' => ['required','email'],
+            'website' => 'required',
+            'address' => 'required'
+        ]);
+
+        $company->update($formFields);
+
+        return redirect(route('company.index'));
+    }
 }

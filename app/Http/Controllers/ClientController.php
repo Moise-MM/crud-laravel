@@ -70,7 +70,11 @@ class ClientController extends Controller
             $newNameImage = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
     
             $path_image = storage_path('app/public/uploads/clients/'.$newNameImage);
-            
+
+            if (!file_exists(storage_path('app/public/uploads/clients/'))) {
+                mkdir((storage_path('app/public/uploads/clients/')), 666, true);
+            }
+
             //resize image
             Image::make($image)->resize(500,600)->save($path_image);
 
@@ -144,6 +148,10 @@ class ClientController extends Controller
              $newNameImage = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
      
              $path_image = storage_path('app/public/uploads/clients/'.$newNameImage);
+
+             if (!file_exists(storage_path('app/public/uploads/clients/'))) {
+                mkdir((storage_path('app/public/uploads/clients/')), 666, true);
+            }
              
              //resize image
              Image::make($image)->resize(500,600)->save($path_image);
