@@ -102,4 +102,18 @@ class CompanyController extends Controller
 
         return redirect(route('company.index'));
     }
+
+
+
+    /**
+     * Delete client
+     *
+     * @param Company $company
+     */
+    public function destroy(Company $company)
+    {
+        $company->delete();
+
+        return redirect(route('company.index'));
+    }
 }
