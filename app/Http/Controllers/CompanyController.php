@@ -21,4 +21,14 @@ class CompanyController extends Controller
             'companies' => $companies
         ]);
     }
+
+
+    /**
+     * Show create Form
+     *
+     */
+    public function create()
+    {
+        return view('companies.create');
+    }
 }

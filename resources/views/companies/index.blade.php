@@ -3,7 +3,8 @@
 
     <div class="container mt-3">
         <h1 class="h3">List of companies</h1>
-
+        <hr>
+        <a href="{{ route('company.create') }}" class="btn btn-primary">Add new company</a>
         <hr>
 
         <div class="table-responsive">

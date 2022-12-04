@@ -21,6 +21,10 @@ Route::get('/', function () {
 
 //company
 Route::get('/companies',[CompanyController::class,'index'])->name('company.index');
+//
+Route::get('/companies/add',[CompanyController::class,'create'])->name('company.create');
+//
+Route::post('/companies/store',[CompanyController::class,'store'])->name('company.store');
 
 //----------------------------------------------------------------------------------------
 
