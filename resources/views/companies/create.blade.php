@@ -12,7 +12,7 @@
            <div class="col-6 mx-auto">
                 <form action="{{ route('company.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="card p-5 mt-5">
+                    <div class="card p-4 mt-2">
                         <div class="row">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
@@ -58,7 +58,7 @@
                        <div class="row">
                         <div class="mb-3 col-12">
                            <label for="address" class="form-label">Address</label>
-                           <textarea name="" id="" cols="30" rows="5" class="form-control @error('address') is-invalid @enderror"" id="address">
+                           <textarea name="address" id="" cols="30" rows="5" class="form-control @error('address') is-invalid @enderror"" id="address">
                             {{ old('address') }}
                            </textarea>
                            @error('address')

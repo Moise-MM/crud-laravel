@@ -15,7 +15,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::all();
+        $companies = Company::orderBy('id','DESC')->get();
 
         return view('companies.index',[
             'companies' => $companies
@@ -30,5 +30,25 @@ class CompanyController extends Controller
     public function create()
     {
         return view('companies.create');
+    }
+
+
+    public function store(Request $request)
+    {
+        //validation
+        $formFields = $request->validate([
+            'name' => ['required','min:4'],
+            'email' => ['required','email'],
+            'website' => 'required',
+            'address' => 'required'
+        ]);
+
+        $formFields['logo'] = "";
+
+        //
+        Company::create($formFields);
+
+
+        return redirect(route('company.index'));
     }
 }

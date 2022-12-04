@@ -10,6 +10,19 @@ class Company extends Model
     use HasFactory;
 
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'website',
+        'logo',
+        'address',
+    ];
+
 
     /**
      * Relationship With clients
